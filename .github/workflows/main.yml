@@ -24,9 +24,10 @@ jobs:
     strategy:
       matrix:
         ros_distribution:
-          - noetic
+          - foxy
           - humble
           - iron
+          - rolling
 
         # Define the Docker image(s) associated with each ROS distribution.
         # The include syntax allows additional variables to be defined, like
