@@ -1,0 +1,14 @@
+name: build-action
+on: push
+jobs:
+  build_docker:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:jammy
+    steps:
+      - uses: ros-tooling/setup-ros@v0.7
+        with:
+          use-ros2-testing: true
+          required-ros-distributions: humble
+      - uses: ros-tooling/setup-ros@v0.7
+      - run: vcs --help
