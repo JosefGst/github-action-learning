@@ -21,4 +21,4 @@ jobs:
       # - run: . /opt/ros/humble/setup.sh && colcon build
         with:
           package-name: github-action-learning
-          target-ros2-distro: ${{ matrix.ros_distribution }}
+          target-ros2-distro: ${{ matrix.rosdistro }}
