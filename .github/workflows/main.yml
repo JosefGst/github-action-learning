@@ -12,5 +12,7 @@ jobs:
           required-ros-distributions: humble
       - name: build workspace
         uses: ros-tooling/setup-ros@v0.7
-      - run: colcon_build
+        with:
+          path: src/github-action-learning
       - run: echo "hello world"
+      - run: . /opt/ros/humble/setup.sh && colcon build
