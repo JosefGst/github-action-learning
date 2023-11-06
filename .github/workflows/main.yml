@@ -2,6 +2,9 @@ name: build-action
 on: push
 jobs:
   build_docker:
+    strategy:
+        matrix:
+          rosdistro: [foxy, galactic, humble, rolling]
     runs-on: ubuntu-latest
     container:
       image: ubuntu:jammy
@@ -9,10 +12,13 @@ jobs:
       - uses: ros-tooling/setup-ros@v0.7
         with:
           use-ros2-testing: true
-          required-ros-distributions: humble
+          required-ros-distributions: ${{ matrix.rosdistro }}
       - name: build workspace
         uses: ros-tooling/setup-ros@v0.7
+      #   with:
+      #     path: src/github-action-learning
+      # - run: echo "hello world"
+      # - run: . /opt/ros/humble/setup.sh && colcon build
         with:
-          path: src/github-action-learning
-      - run: echo "hello world"
-      - run: . /opt/ros/humble/setup.sh && colcon build
+          package-name: github-action-learning
+          target-ros2-distro: ${{ matrix.ros_distribution }}
