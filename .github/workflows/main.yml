@@ -8,6 +8,6 @@ jobs:
     steps:
       - uses: ros-tooling/setup-ros@v0.7
         with:
-          required-ros-distributions: foxy humble
+          required-ros-distributions: humble iron
       - run: "source /opt/ros/humble/setup.bash && ros2 run --help"
-      - run: "source /opt/ros/foxy/setup.bash && rosnode --help"
+      - run: "source /opt/ros/iron/setup.bash && rosnode --help"
